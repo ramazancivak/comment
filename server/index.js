@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const programmingLanguagesRouter = require("./routes/test");
+const Customer = require("./routes/Customer");
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -11,7 +11,7 @@ app.use(
 app.get("/", (req, res) => {
   res.json({ message: "ok" });
 });
-app.use("/test", programmingLanguagesRouter);
+app.use("/Customer/", Customer);
 /* Error handler middleware */
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
